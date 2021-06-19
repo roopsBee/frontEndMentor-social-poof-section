@@ -1,0 +1,23 @@
+$dark-magenta: hsl(300, 43%, 22%);
+$soft-pink: hsl(333, 80%, 67%);
+$dark-grey-magenta: hsl(303, 10%, 53%);
+$light-gray-magenta: hsl(300, 24%, 96%);
+$white: hsl(0, 0%, 100%);
+$body-font-size: 15px;
+$font-weight: (
+  regular: 400,
+  medium: 500,
+  bold: 700,
+);
+
+@mixin font-style($weight, $color, $size) {
+  font-weight: map-get($font-weight, $weight);
+  color: $color;
+  font-size: $size;
+}
+
+@mixin desktop {
+  @media (min-width: 900px) {
+    @content;
+  }
+}

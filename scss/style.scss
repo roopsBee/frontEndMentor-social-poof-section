@@ -1,0 +1,152 @@
+@import "./variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Spartan", sans-serif;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(/images/bg-pattern-top-mobile.svg),
+    url(/images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+  @include desktop {
+    background-image: url(/images/bg-pattern-top-desktop.svg),
+      url(/images/bg-pattern-bottom-desktop.svg);
+  }
+}
+main {
+  padding: 100px 25px;
+  @include desktop {
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.main-section {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 4fr;
+  grid-gap: 50px;
+  @include desktop {
+    margin: 0 5%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30vh 30vh;
+  }
+}
+
+.header-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include desktop {
+    text-align: left;
+  }
+  .header-header {
+    @include font-style(bold, $dark-magenta, 32px);
+    line-height: 32px;
+    margin: 5% 0;
+    @include desktop {
+      font-size: 50px;
+      line-height: 50px;
+    }
+  }
+  .header-body {
+    @include font-style(regular, $dark-grey-magenta, $body-font-size);
+    line-height: 20px;
+  }
+}
+
+.rating-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+
+  .rating-card {
+    height: 30%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $light-gray-magenta;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    @include desktop {
+      flex-direction: row;
+      align-items: center;
+      width: 80%;
+      &:first-child {
+        align-self: flex-start;
+      }
+      &:last-child {
+        align-self: flex-end;
+      }
+    }
+    .rating-text {
+      @include font-style(bold, $dark-magenta, 15px);
+    }
+  }
+}
+
+.review-cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  @include desktop {
+    grid-column-end: span 2;
+    flex-direction: row;
+    align-items: center;
+  }
+  .review-card {
+    background-color: $dark-magenta;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    justify-content: space-around;
+    @include desktop {
+      height: 80%;
+      width: 32%;
+      &:first-child {
+        align-self: flex-start;
+      }
+      &:last-child {
+        align-self: flex-end;
+      }
+    }
+    .review-card-header {
+      display: flex;
+      height: 20%;
+      @include desktop {
+        height: 25%;
+      }
+      .avatar {
+        border-radius: 50%;
+        margin-right: 10%;
+      }
+      .name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .name {
+          @include font-style(medium, $white, 15px);
+        }
+        .secondary {
+          @include font-style(regular, $soft-pink, 15px);
+        }
+      }
+    }
+    .card-body {
+      @include font-style(regular, $light-gray-magenta, 15px);
+      line-height: 20px;
+    }
+  }
+}
